@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Blood Code - Module 1 Worksheets</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0a0a0a;
+            color: #3a3a3a;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        /* Page structure for printing */
+        .page {
+            width: 8.5in;
+            min-height: 11in;
+            margin: 0 auto 40px;
+            background: #e8e2db;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            page-break-after: always;
+            position: relative;
+            padding: 60px;
+        }
+        
+        @media print {
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+            }
+            body {
+                background: white;
+            }
+        }
+        
+        /* Cover Page Styles */
+        .cover-page {
+            background: linear-gradient(135deg, #1a0a0a 0%, #2a1010 100%);
+            color: #e8e2db;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .cover-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #8b4513;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(139, 69, 19, 0.5);
+        }
+        
+        .cover-subtitle {
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            color: #daa520;
+            margin-bottom: 40px;
+        }
+        
+        .moon-phases {
+            font-size: 2rem;
+            letter-spacing: 10px;
+            margin: 30px 0;
+            color: #8b4513;
+        }
+        
+        .student-info {
+            margin-top: 60px;
+            border: 1px solid #8b4513;
+            padding: 20px 40px;
+            border-radius: 4px;
+        }
+        
+        .student-info input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #daa520;
+            color: #e8e2db;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            padding: 5px;
+            margin: 10px;
+            width: 200px;
+        }
+        
+        /* Interior page header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #8b4513;
+        }
+        
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #2b2826;
+            margin-bottom: 10px;
+        }
+        
+        .page-subtitle {
+            font-style: italic;
+            color: #8b4513;
+            font-size: 1.2rem;
+        }
+        
+        /* Invocation page */
+        .invocation-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            text-align: center;
+            color: #3a2a20;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(139, 69, 19, 0.05);
+            border-radius: 4px;
+        }
+        
+        .writing-lines {
+            margin-top: 30px;
+        }
+        
+        .writing-line {
+            border-bottom: 1px solid #c9b79c;
+            height: 35px;
+            margin-bottom: 10px;
+        }
+        
+        /* Quiz styles */
+        .quiz-question {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(139, 69, 19, 0.03);
+            border-left: 3px solid #8b4513;
+        }
+        
+        .quiz-question h3 {
+            color: #2b2826;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .quiz-options {
+            margin-left: 20px;
+        }
+        
+        .quiz-option {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .quiz-option input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .answer-key {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(218, 165, 32, 0.1);
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .archetype-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        
+        .archetype-icon {
+            text-align: center;
+        }
+        
+        .archetype-icon span {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        
+        /* Cycle tracker */
+        .cycle-wheel {
+            width: 500px;
+            height: 500px;
+            margin: 40px auto;
+            position: relative;
+        }
+        
+        .cycle-circle {
+            width: 100%;
+            height: 100%;
+            border: 2px solid #8b4513;
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .cycle-day {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #c9b79c;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        .cycle-legend {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(139, 69, 19, 0.05);
+            border-radius: 4px;
+        }
+        
+        /* Journal prompts */
+        .journal-prompt {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(139, 69, 19, 0.03);
+            border-left: 3px solid #8b4513;
+        }
+        
+        .journal-prompt h3 {
+            color: #8b4513;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .journal-lines {
+            margin-top: 15px;
+        }
+        
+        /* Herbs & Crystals */
+        .allies-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .ally-section {
+            padding: 20px;
+            background: rgba(139, 69, 19, 0.05);
+            border-radius: 4px;
+        }
+        
+        .ally-section h3 {
+            color: #8b4513;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .ally-item {
+            margin: 15px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .ally-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        
+        /* Ritual checklist */
+        .ritual-item {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(139, 69, 19, 0.03);
+            border-left: 3px solid #8b4513;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .ritual-item input[type="checkbox"] {
+            margin-right: 15px;
+            margin-top: 3px;
+        }
+        
+        .ritual-description {
+            flex: 1;
+        }
+        
+        .ritual-description h4 {
+            color: #2b2826;
+            margin-bottom: 5px;
+        }
+        
+        .ritual-description p {
+            font-size: 0.95rem;
+            color: #6a6560;
+        }
+        
+        /* Closing reflection */
+        .reflection-space {
+            margin-top: 30px;
+            padding: 30px;
+            background: rgba(139, 69, 19, 0.03);
+            border-radius: 4px;
+            min-height: 300px;
+        }
+        
+        .closing-mantra {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, #1a0a0a 0%, #2a1010 100%);
+            color: #daa520;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+        
+        /* Playlist page */
+        .qr-placeholder {
+            width: 200px;
+            height: 200px;
+            margin: 30px auto;
+            border: 2px solid #8b4513;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+        
+        .track-list {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(139, 69, 19, 0.05);
+            border-radius: 4px;
+        }
+        
+        .track {
+            padding: 10px;
+            border-bottom: 1px solid #c9b79c;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .track:last-child {
+            border-bottom: none;
+        }
+        
+        .notes-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 4px;
+            min-height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <!-- COVER PAGE -->
+    <div class="page cover-page">
+        <div class="cover-title">The Blood Code</div>
+        <div class="cover-subtitle">Your Hidden Operating System</div>
+        <div class="moon-phases">🌑 🌒 🌓 🌕 🌖 🌗 🌘</div>
+        <div style="margin: 40px 0;">
+            <p style="font-size: 1.2rem; letter-spacing: 2px;">WORKSHEET PACK — MODULE 1</p>
+        </div>
+        <div class="student-info">
+            <div>
+                <label>Name: </label>
+                <input type="text" />
+            </div>
+            <div>
+                <label>Date: </label>
+                <input type="text" />
+            </div>
+        </div>
+    </div>
+    
+    <!-- PAGE 1: INVOCATION COPY PAGE -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🕯 Invocation</div>
+            <div class="page-subtitle">Copy these lines in your own handwriting to open the ritual space</div>
+        </div>
+        
+        <div class="invocation-text">
+            Your blood is not a curse.<br>
+            Your blood is a code.<br>
+            Four phases, four faces, four powers.<br>
+            You bleed with the moon,<br>
+            with the tides,<br>
+            with the turning of the world.<br>
+            Every cycle is a small death and rebirth.
+        </div>
+        
+        <div class="writing-lines">
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+        </div>
+    </div>
+    
+    <!-- PAGE 2: ARCHETYPE QUIZ -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🔮 Archetype Quiz</div>
+            <div class="page-subtitle">Which Cycle Archetype Are You Right Now?</div>
+        </div>
+        
+        <div class="quiz-question">
+            <h3>1. Your energy feels most like:</h3>
+            <div class="quiz-options">
+                <div class="quiz-option">
+                    <input type="radio" name="q1" value="a">
+                    <label>A. Deep winter silence, needing rest</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q1" value="b">
+                    <label>B. Spring awakening, curious and playful</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q1" value="c">
+                    <label>C. Summer fire, magnetic and bold</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q1" value="d">
+                    <label>D. Autumn storm, intense and transforming</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quiz-question">
+            <h3>2. What pulls you hardest right now?</h3>
+            <div class="quiz-options">
+                <div class="quiz-option">
+                    <input type="radio" name="q2" value="a">
+                    <label>A. Sleep and solitude</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q2" value="b">
+                    <label>B. New projects and ideas</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q2" value="c">
+                    <label>C. Connection and celebration</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q2" value="d">
+                    <label>D. Truth-telling and release</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quiz-question">
+            <h3>3. Your body wisdom speaks of:</h3>
+            <div class="quiz-options">
+                <div class="quiz-option">
+                    <input type="radio" name="q3" value="a">
+                    <label>A. Ache and bleeding</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q3" value="b">
+                    <label>B. Energy and growth</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q3" value="c">
+                    <label>C. Glow and desire</label>
+                </div>
+                <div class="quiz-option">
+                    <input type="radio" name="q3" value="d">
+                    <label>D. Tension and mood</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="answer-key">
+            <h3>Count Your Answers:</h3>
+            <p>Mostly A's = <strong>The Crone/Winter/Menstrual</strong></p>
+            <p>Mostly B's = <strong>The Maiden/Spring/Follicular</strong></p>
+            <p>Mostly C's = <strong>The Lover/Summer/Ovulation</strong></p>
+            <p>Mostly D's = <strong>The Enchantress/Autumn/Luteal</strong></p>
+            
+            <div class="archetype-icons">
+                <div class="archetype-icon">
+                    <span>🌑</span>
+                    <small>Crone</small>
+                </div>
+                <div class="archetype-icon">
+                    <span>🌱</span>
+                    <small>Maiden</small>
+                </div>
+                <div class="archetype-icon">
+                    <span>🔥</span>
+                    <small>Lover</small>
+                </div>
+                <div class="archetype-icon">
+                    <span>⚡</span>
+                    <small>Enchantress</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PAGE 3: CYCLE MAP TRACKER -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🧪 Cycle Map Tracker</div>
+            <div class="page-subtitle">28-Day Wheel of Blood & Moon</div>
+        </div>
+        
+        <div class="cycle-wheel">
+            <svg viewBox="0 0 500 500" style="width: 100%; height: 100%;">
+                <!-- Outer circle -->
+                <circle cx="250" cy="250" r="240" fill="none" stroke="#8b4513" stroke-width="2"/>
+                <circle cx="250" cy="250" r="200" fill="none" stroke="#c9b79c" stroke-width="1"/>
+                <circle cx="250" cy="250" r="160" fill="none" stroke="#c9b79c" stroke-width="1" stroke-dasharray="5,5"/>
+                
+                <!-- Day markers -->
+                <g id="days">
+                    <!-- Days 1-28 positioned around the circle -->
+                    <g transform="translate(250,250)">
+                        <!-- This would be generated programmatically, showing simplified version -->
+                        <text x="0" y="-220" text-anchor="middle" fill="#2b2826" font-size="12">Day 1</text>
+                        <circle cx="0" cy="-220" r="15" fill="white" stroke="#8b4513" stroke-width="1"/>
+                    </g>
+                </g>
+                
+                <!-- Moon phase indicators -->
+                <text x="250" y="30" text-anchor="middle" fill="#8b4513" font-size="20">🌑</text>
+                <text x="470" y="250" text-anchor="middle" fill="#8b4513" font-size="20">🌓</text>
+                <text x="250" y="480" text-anchor="middle" fill="#8b4513" font-size="20">🌕</text>
+                <text x="30" y="250" text-anchor="middle" fill="#8b4513" font-size="20">🌗</text>
+            </svg>
+        </div>
+        
+        <div class="cycle-legend">
+            <div>
+                <strong>Color Code:</strong>
+            </div>
+            <div>
+                🔴 Heavy Flow
+            </div>
+            <div>
+                🟡 Light Flow
+            </div>
+            <div>
+                🟢 Fertile
+            </div>
+            <div>
+                🔵 PMS
+            </div>
+            <div>
+                ⚪ Other
+            </div>
+        </div>
+    </div>
+    
+    <!-- PAGE 4: JOURNAL PROMPTS -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">✍️ Journal Prompts</div>
+            <div class="page-subtitle">Decode Your Blood</div>
+        </div>
+        
+        <div class="journal-prompt">
+            <h3>1. What did your first bleed mean to you then? What does it mean to you now?</h3>
+            <div class="journal-lines">
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+            </div>
+        </div>
+        
+        <div class="journal-prompt">
+            <h3>2. If your blood could speak, what message would it give?</h3>
+            <div class="journal-lines">
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+            </div>
+        </div>
+        
+        <div class="journal-prompt">
+            <h3>3. What cycle archetype do you resist? Why?</h3>
+            <div class="journal-lines">
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+                <div class="writing-line"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PAGE 5: HERBS & CRYSTALS GUIDE -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🌿 Herbs & Crystals Guide</div>
+            <div class="page-subtitle">Choose Your Allies for This Cycle</div>
+        </div>
+        
+        <div class="allies-grid">
+            <div class="ally-section">
+                <h3>Herbs for Module 1</h3>
+                <div class="ally-item">
+                    <input type="checkbox">
+                    <div>
+                        <strong>Mugwort</strong><br>
+                        <small>Dreams + bleed power</small>
+                    </div>
+                </div>
+                <div class="ally-item">
+                    <input type="checkbox">
+                    <div>
+                        <strong>Red Clover</strong><br>
+                        <small>Fertility & renewal</small>
+                    </div>
+                </div>
+                <div class="ally-item">
+                    <input type="checkbox">
+                    <div>
+                        <strong>Raspberry Leaf</strong><br>
+                        <small>Womb strength</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ally-section">
+                <h3>Crystals for Module 1</h3>
+                <div class="ally-item">
+                    <input type="checkbox">
+                    <div>
+                        <strong>Moonstone</strong><br>
+                        <small>Cycle wisdom</small>
+                    </div>
+                </div>
+                <div class="ally-item">
+                    <input type="checkbox">
+                    <div>
+                        <strong>Carnelian</strong><br>
+                        <small>Sacral fire</small>
+                    </div>
+                </div>
+                <div class="ally-item">
+                    <input type="checkbox">
+                    <div>
+                        <strong>Obsidian</strong><br>
+                        <small>Shadow grounding</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 40px; padding: 20px; background: rgba(139, 69, 19, 0.05); border-radius: 4px;">
+            <p style="text-align: center; font-style: italic;">
+                "Circle which allies you will work with this cycle. Gather them for your altar or carry them with you."
+            </p>
+        </div>
+    </div>
+    
+    <!-- PAGE 6: PLAYLIST PAGE -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🎶 Playlist Page</div>
+            <div class="page-subtitle">Blood Code Soundtrack</div>
+        </div>
+        
+        <div class="qr-placeholder">
+            <p style="text-align: center; color: #8b4513;">QR Code to<br>Spotify Playlist</p>
+        </div>
+        
+        <div class="track-list">
+            <h3 style="text-align: center; color: #8b4513; margin-bottom: 20px;">Suggested Tracks</h3>
+            <div class="track">
+                <span>"Cosmic Love"</span>
+                <span>Florence + the Machine</span>
+            </div>
+            <div class="track">
+                <span>"Dreams"</span>
+                <span>Fleetwood Mac</span>
+            </div>
+            <div class="track">
+                <span>"Blood"</span>
+                <span>The Middle East</span>
+            </div>
+            <div class="track">
+                <span>"Shake It Out"</span>
+                <span>Florence + the Machine</span>
+            </div>
+            <div class="track">
+                <span>"Run the World"</span>
+                <span>Beyoncé</span>
+            </div>
+        </div>
+        
+        <div class="notes-section">
+            <h4 style="color: #8b4513; margin-bottom: 10px;">Notes:</h4>
+            <p style="font-style: italic; color: #6a6560;">Play during journaling, ritual bath, or meditation...</p>
+        </div>
+    </div>
+    
+    <!-- PAGE 7: RITUAL CHECKLIST -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🪄 Ritual Checklist</div>
+            <div class="page-subtitle">Blood Code Rituals — To Try This Cycle</div>
+        </div>
+        
+        <div class="ritual-item">
+            <input type="checkbox">
+            <div class="ritual-description">
+                <h4>Blood Journal</h4>
+                <p>Write one page with your cycle day + current moon phase. Note your energy, mood, and any body signals.</p>
+            </div>
+        </div>
+        
+        <div class="ritual-item">
+            <input type="checkbox">
+            <div class="ritual-description">
+                <h4>Altar Setup</h4>
+                <p>Create sacred space with: red candle, red cloth, chosen crystal from page 5, and a bowl of water.</p>
+            </div>
+        </div>
+        
+        <div class="ritual-item">
+            <input type="checkbox">
+            <div class="ritual-description">
+                <h4>New Moon Intention Ritual</h4>
+                <p>On the new moon, light your candle and speak your intention for this cycle. Write it down and place under your crystal.</p>
+            </div>
+        </div>
+        
+        <div class="ritual-item">
+            <input type="checkbox">
+            <div class="ritual-description">
+                <h4>Archetype Embodiment Dance</h4>
+                <p>Put on music and embody your current archetype for 5 minutes. Move as the Maiden, Mother, Lover, or Crone would move.</p>
+            </div>
+        </div>
+        
+        <div class="ritual-item">
+            <input type="checkbox">
+            <div class="ritual-description">
+                <h4>Herbal Ally Brew</h4>
+                <p>Make tea with your chosen herb from page 5. Drink mindfully while journaling or meditating.</p>
+            </div>
+        </div>
+        
+        <div class="notes-section" style="margin-top: 40px;">
+            <h4 style="color: #8b4513; margin-bottom: 10px;">Additional Notes:</h4>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+        </div>
+    </div>
+    
+    <!-- PAGE 8: CLOSING REFLECTION -->
+    <div class="page">
+        <div class="page-header">
+            <div class="page-title">🕯 Closing Reflection</div>
+            <div class="page-subtitle">Integration & Forward Movement</div>
+        </div>
+        
+        <div class="reflection-space">
+            <h3 style="color: #8b4513; margin-bottom: 20px; font-style: italic;">
+                What did you discover about your cycle archetype?
+            </h3>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            
+            <h3 style="color: #8b4513; margin: 30px 0 20px 0; font-style: italic;">
+                What felt most powerful in this module?
+            </h3>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            
+            <h3 style="color: #8b4513; margin: 30px 0 20px 0; font-style: italic;">
+                What will you bring forward into Module 2?
+            </h3>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+            <div class="writing-line"></div>
+        </div>
+        
+        <div class="closing-mantra">
+            My blood is my code.<br>
+            My code is my power.
+        </div>
+    </div>
+</body>
+</html>

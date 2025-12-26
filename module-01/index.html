@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module One: The Blood Code</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #1f1e1c;
+            color: #3a3a3a;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+        
+        .page-wrapper {
+            background: 
+                linear-gradient(180deg, #2a2826 0%, #1f1e1c 50%, #242220 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+        
+        /* Module Header */
+        .module-header {
+            background: linear-gradient(135deg, #3a3633 0%, #2f2c2a 100%);
+            padding: 100px 60px;
+            text-align: center;
+            position: relative;
+            margin-bottom: 80px;
+            border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .module-header::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid rgba(200, 127, 96, 0.3);
+            border-radius: 4px;
+        }
+        
+        .module-label {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: rgba(200, 127, 96, 0.7);
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            font-size: 2.5rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: #c87f60;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+            color: rgba(200, 127, 96, 0.7);
+            font-style: italic;
+        }
+        
+        /* Invocation Box */
+        .invocation {
+            background: #e8e2db;
+            padding: 50px;
+            margin: 60px 0;
+            border-left: 4px solid #c87f60;
+            border-radius: 4px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.2);
+        }
+        
+        .invocation p {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #4a453f;
+            text-align: center;
+            line-height: 1.8;
+        }
+        
+        /* Section Cards */
+        .section-card {
+            background: #e8e2db;
+            margin: 40px 0;
+            padding: 50px;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        
+        .section-icon {
+            position: absolute;
+            top: -20px;
+            left: 50px;
+            background: #e8e2db;
+            padding: 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #2b2826;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: #c87f60;
+            margin: 30px 0 15px;
+        }
+        
+        p, li {
+            color: #4a453f;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        ul li::before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: #c87f60;
+        }
+        
+        strong {
+            color: #2b2826;
+            font-weight: 400;
+        }
+        
+        /* Quote Blocks */
+        blockquote {
+            border-left: 3px solid #c87f60;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #6a6560;
+        }
+        
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .grid-item {
+            background: linear-gradient(135deg, #d9d3cb 0%, #d1cac0 100%);
+            padding: 25px;
+            border-radius: 4px;
+            border-left: 3px solid #c87f60;
+        }
+        
+        .grid-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #2b2826;
+            margin-bottom: 10px;
+        }
+        
+        .grid-item p {
+            font-size: 1rem;
+            color: #6a6560;
+        }
+        
+        /* Practice Box */
+        .practice-box {
+            background: linear-gradient(135deg, #3a3633 0%, #2f2c2a 100%);
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .practice-box h3 {
+            color: #c87f60;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .practice-box ol {
+            color: #b5a89a;
+            padding-left: 30px;
+        }
+        
+        .practice-box ol li {
+            margin-bottom: 15px;
+            color: #b5a89a;
+        }
+        
+        /* Divider */
+        .divider {
+            margin: 80px auto;
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #c87f60, transparent);
+        }
+        
+        /* Closing Section */
+        .closing-section {
+            background: #e8e2db;
+            padding: 60px;
+            margin: 80px 0;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+        }
+        
+        .closing-section p {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #4a453f;
+            line-height: 1.8;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 40px 20px; }
+            .module-header { padding: 60px 40px; }
+            h1 { font-size: 1.8rem; }
+            .section-card { padding: 40px 30px; }
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="container">
+            <!-- Module Header -->
+            <div class="module-header">
+                <div class="module-label">Module One</div>
+                <h1>The Blood Code</h1>
+                <div class="subtitle">Opening the Body's Operating System</div>
+            </div>
+            
+            <!-- Invocation -->
+            <div class="invocation">
+                <p>
+                    Your blood is not waste.<br>
+                    It is archive, covenant, and code.<br>
+                    Every month, your body runs a program older than empires,<br>
+                    and each flow is both a shedding and a signal.<br>
+                    The first step in Witchy Science is to see your blood as text —<br>
+                    biological, mystical, cultural, political — all at once.
+                </p>
+            </div>
+            
+            <!-- Science Layer -->
+            <div class="section-card">
+                <span class="section-icon">🔬</span>
+                <h2>Science Layer — What Blood Is</h2>
+                
+                <p><strong>Physiology:</strong> Menstrual blood is not just blood — it's a mixture of endometrial tissue, cervical mucus, and vaginal secretions. Its color, clotting, and texture are data points.</p>
+                
+                <p><strong>Vital Sign:</strong> In gynecology, menstruation is called the "fifth vital sign," as important as pulse, blood pressure, temperature, and respiration.</p>
+                
+                <h3>Healthy Ranges:</h3>
+                <ul>
+                    <li>Color: bright red = healthy flow, brown/black = older blood, pink = low estrogen</li>
+                    <li>Volume: 30–60 mL average, 80 mL+ may signal menorrhagia</li>
+                    <li>Duration: 3–7 days typical</li>
+                    <li>Pain: mild cramping is normal, disabling pain may indicate endometriosis or imbalance</li>
+                </ul>
+            </div>
+            
+            <!-- Theology Layer -->
+            <div class="section-card">
+                <span class="section-icon">🕯</span>
+                <h2>Theology Layer — Blood as Covenant</h2>
+                
+                <ul>
+                    <li><strong>Christianity:</strong> Blood as sacrifice and purification ("This is my blood of the covenant")</li>
+                    <li><strong>Judaism:</strong> Menstrual blood framed as "niddah" — ritual impurity requiring separation</li>
+                    <li><strong>Hinduism:</strong> Blood offered to goddesses like Kali and Durga, both feared and worshipped</li>
+                    <li><strong>Islam:</strong> Menstruation exempts women from prayer/fasting — recognition of bodily cycles in spiritual law</li>
+                </ul>
+                
+                <blockquote>Blood as covenant teaches: society has always treated your blood as holy and dangerous.</blockquote>
+            </div>
+            
+            <!-- Spirituality Layer -->
+            <div class="section-card">
+                <span class="section-icon">🌌</span>
+                <h2>Spirituality Layer — Blood as Portal</h2>
+                
+                <ul>
+                    <li><strong>Cherokee Moon Lodge:</strong> menstruating women withdrew not in shame, but in recognition of spiritual potency</li>
+                    <li><strong>Japanese Tradition:</strong> Sekihan (red rice with beans) served at first menstruation as blessing</li>
+                    <li><strong>Mayan Myth:</strong> Moon goddess Ix Chel's blood transformed into snakes and medicine — blood as both curse and cure</li>
+                    <li><strong>Modern Red Tent:</strong> revival of menstrual ritual as community bonding</li>
+                </ul>
+                
+                <blockquote>Blood as portal teaches: your bleed is both magic and medicine.</blockquote>
+            </div>
+            
+            <!-- Philosophy Layer -->
+            <div class="section-card">
+                <span class="section-icon">📜</span>
+                <h2>Philosophy Layer — Blood as Meaning</h2>
+                
+                <ul>
+                    <li><strong>Aristotle:</strong> blood as "vital heat," seat of life-force</li>
+                    <li><strong>Nietzsche:</strong> eternal return mirrored in monthly cycles</li>
+                    <li><strong>Simone de Beauvoir:</strong> blood as women's exile from transcendence, forced into immanence</li>
+                    <li><strong>Judith Butler:</strong> cycle as site where gender, biology, and power collide</li>
+                </ul>
+                
+                <blockquote>Blood as meaning teaches: your cycle is political, existential, and symbolic.</blockquote>
+            </div>
+            
+            <!-- Psychology Layer -->
+            <div class="section-card">
+                <span class="section-icon">🧠</span>
+                <h2>Psychology Layer — Blood as Mirror</h2>
+                
+                <ul>
+                    <li><strong>PMS:</strong> not just "hormonal mood swings," but heightened emotional sensitivity — unconscious material surfacing</li>
+                    <li><strong>Jung:</strong> menstrual cycle as archetypal wheel — Maiden, Mother, Enchantress, Crone</li>
+                    <li><strong>Depth Psychology:</strong> bleeding as confrontation with shadow + renewal</li>
+                </ul>
+                
+                <blockquote>Blood as mirror teaches: your psyche rides the wave of hormones, surfacing truths in rhythm.</blockquote>
+            </div>
+            
+            <!-- Witchy Practices -->
+            <div class="section-card">
+                <span class="section-icon">🪄</span>
+                <h2>Witchy Practices</h2>
+                
+                <h3>Blood Rituals</h3>
+                <ul>
+                    <li><strong>Offerings:</strong> bury cloth pads or pour diluted blood-water into earth → return life-force</li>
+                    <li><strong>Blood Journaling:</strong> write in red ink about dreams, aches, cravings</li>
+                    <li><strong>Blood Magic:</strong> anoint candles with diluted menstrual blood for protection or manifestation</li>
+                </ul>
+                
+                <h3>Steam & Baths</h3>
+                <ul>
+                    <li><strong>Vaginal Steaming:</strong> mugwort, rosemary, lavender for cleansing + womb care (used in Korea, Central America, Africa)</li>
+                    <li><strong>Sitz Bath:</strong> calendula + chamomile for soothing cramps, postpartum care</li>
+                </ul>
+            </div>
+            
+            <!-- Herbal & Crystal Allies -->
+            <div class="section-card">
+                <div class="grid-2">
+                    <div>
+                        <h3>🌿 Herbal Allies</h3>
+                        <ul>
+                            <li><strong>Raspberry Leaf:</strong> tones uterine muscles</li>
+                            <li><strong>Nettle:</strong> iron-rich, replenishes blood</li>
+                            <li><strong>Yarrow:</strong> regulates flow</li>
+                            <li><strong>Mugwort:</strong> dream-opening, womb cleansing</li>
+                            <li><strong>Cacao:</strong> magnesium-rich, euphoria + relaxation</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>🔮 Crystal Allies</h3>
+                        <ul>
+                            <li><strong>Black Obsidian:</strong> grounding, shadow work</li>
+                            <li><strong>Moonstone:</strong> cycle regulation, intuition</li>
+                            <li><strong>Bloodstone:</strong> vitality, strength</li>
+                            <li><strong>Carnelian:</strong> womb activation, creativity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Playlist -->
+            <div class="section-card">
+                <span class="section-icon">🎶</span>
+                <h2>Playlist (Menstrual / Winter / Crone)</h2>
+                
+                <ul>
+                    <li><strong>Sounds:</strong> low drumming, cello, Tibetan bowls, rain recordings</li>
+                    <li><strong>Songs:</strong> ritual chants, ambient tones, women's circle music</li>
+                    <li><strong>Frequencies:</strong> 432Hz (cellular healing), 528Hz (DNA repair)</li>
+                </ul>
+            </div>
+            
+            <!-- Global Blood Practices -->
+            <div class="section-card">
+                <span class="section-icon">🌍</span>
+                <h2>Global Blood Practices</h2>
+                
+                <ul>
+                    <li><strong>Rome:</strong> Pliny wrote menstrual blood stopped storms + pests — feared power</li>
+                    <li><strong>Egypt:</strong> Hathor cult → menstrual blood used in fertility charms</li>
+                    <li><strong>Africa (various tribes):</strong> menstrual blood mixed with soil to fertilize fields</li>
+                    <li><strong>Japan:</strong> Sekihan red rice → first period as celebration</li>
+                    <li><strong>Western Medicine:</strong> menstrual blood ignored until 2019 studies revealed stem cells with regenerative potential</li>
+                </ul>
+            </div>
+            
+            <!-- Practical Body Lab -->
+            <div class="section-card">
+                <span class="section-icon">🧪</span>
+                <h2>Practical Body Lab</h2>
+                
+                <ul>
+                    <li><strong>Blood Tracking:</strong> collect and log color, texture, flow, mood</li>
+                    <li><strong>Product Audit:</strong> tampons, pads, cups, toilet paper → identify chemicals (PFAS, bleaches, plastics)</li>
+                    <li><strong>Safer Swaps:</strong> organic cotton pads, menstrual cups, unbleached paper</li>
+                    <li><strong>Self-Exam:</strong> cervical position during bleed → map your own anatomy</li>
+                    <li><strong>Drainage:</strong> gentle abdominal massage for cramps, lymph flow</li>
+                </ul>
+            </div>
+            
+            <!-- Integration Practice -->
+            <div class="practice-box">
+                <h3>📒 Integration Practice</h3>
+                
+                <ol>
+                    <li>Take the <strong>Blood Journal</strong>: track physical + emotional + symbolic</li>
+                    <li>Build a <strong>Cycle Altar</strong>: salt bowl, black stone, mugwort, candle</li>
+                    <li>Perform <strong>Earth Offering Ritual</strong> with first or last day of bleed</li>
+                    <li>Write reflection: <em>What does my blood mean to me — waste, signal, or spell?</em></li>
+                </ol>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <!-- Closing -->
+            <div class="closing-section">
+                <p>
+                    Blood is not an accident of biology.<br>
+                    It is covenant, portal, meaning, mirror, and data.<br>
+                    Your first task is to read it with all five voices alive —<br>
+                    the theologian, the mystic, the philosopher, the psychologist, the scientist —<br>
+                    and to weave them into your own authority.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
