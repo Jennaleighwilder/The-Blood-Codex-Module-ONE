@@ -72,3 +72,7 @@ Additional modules expand laterally rather than hierarchically; Module One stand
 All content is provided for personal study and reflection.  
 Reuse, redistribution, or commercial adaptation without permission is not authorized.
 
+### Worksheets
+- [Open Worksheet Pack](module-01/worksheet.html)
+
+
