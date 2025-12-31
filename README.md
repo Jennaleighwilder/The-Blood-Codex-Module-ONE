@@ -76,3 +76,5 @@ Reuse, redistribution, or commercial adaptation without permission is not author
 - [Open Worksheet Pack](module-01/worksheet.html)
 
 
+
+See ORIGIN.md for authorship, provenance, and licensing context.
